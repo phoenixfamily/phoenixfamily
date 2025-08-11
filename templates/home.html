@@ -1,0 +1,335 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+{% block header %}
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="{% url 'home:home-view' %}">{% trans "Home" %}</a></li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+               aria-expanded="false">{% trans "Products" %}</a>
+            <ul class="dropdown-menu">
+                {% for x in Products %}
+                    <li><a class="dropdown-item" href="{% url 'products:product-view' x.id %}">{{ x.name|capfirst }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'contact:contact-view' %}">{% trans "Contact Us" %}</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'about:about-view' %}">{% trans "About Us" %}</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'blogs:blog-view' %}">{% trans "Blogs" %}</a></li>
+    </ul>
+     <!-- دکمه تغییر تم -->
+        <div class="ms-3 d-flex align-items-center">
+             <i class="fas fa-sun" id="sun-icon"></i>
+            <div class="ms-2 form-check form-switch">
+                <label for="theme-switch"></label>
+                <input class="form-check-input" type="checkbox" role="switch" id="theme-switch"
+                       aria-label="Toggle theme"/>
+            </div>
+            <i class="fas fa-moon" id="moon-icon"></i>
+        </div>
+
+        <!-- فرم تغییر زبان -->
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <label>
+                <select name="language" class="form-select form-select-sm w-auto"
+                        onchange="this.form.submit()" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                selected{% endif %}>
+                            {{ language.name_local }} ({{ language.code }})
+                        </option>
+                    {% endfor %}
+                </select>
+            </label>
+        </form>
+{% endblock %}
+
+
+{% block content %}
+
+    <section class="section container py-5">
+
+        <div class="row align-items-center align-items-stretch">
+            <!-- ویدیو -->
+            <div class="col-12 col-lg-6 d-flex justify-content-center position-relative">
+                <div class="video-container" style="aspect-ratio: 16/10">
+                    <!-- دکمه پلی -->
+                    <button id="play-btn" class="play-button">
+                        <i class="fa-solid fa-play" style="color: #ffffff;"></i>
+                    </button>
+
+                    <!-- ویدیو -->
+                    <video id="brand-video" poster="{{ About.image.url }}" class="brand-video" width="100%">
+                        <source src="{{ About.video.url }}" type="video/mp4">
+                        {% trans 'Your browser does not support this format.' %}
+                    </video>
+
+                </div>
+
+            </div>
+
+            <!-- متن با افکت Glassmorphism -->
+            <div class="col-12 col-lg-6 {% if LANGUAGE_BIDI %}text-end{% else %}text-start{% endif %}">
+                <div class="card p-4 rounded shadow glass-card">
+                    <h2 class="display-6 fw-bold section-title"> {{ About.alt }}</h2>
+                    <p class="lead">
+                        {{ About.context }}
+                    </p>
+                    <a href="{% url 'contact:contact-view' %}"
+                       class="btn btn-lg px-4 py-2 shadow">{% trans 'Create Your Entertainment' %}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        document.getElementById("play-btn").addEventListener("click", function () {
+            let video = document.getElementById("brand-video");
+
+            video.controls = true;          // فعال کردن کنترل‌های ویدیو
+            video.play();                   // اجرای ویدیو
+
+            this.style.display = 'none';    // پنهان کردن دکمه پلی
+        });
+
+
+    </script>
+
+    <section class="section container py-5 {% if LANGUAGE_BIDI %}text-end{% else %}text-start{% endif %}">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 class="display-6 fw-bold section-title text-start text-md-end">{% trans 'Crime Cases Platform' %}</h2>
+            <div class="mt-4 text-start text-md-end">
+                <a href="//crime.phoenixfamily.co/"
+                   class="btn btn-lg px-4 py-2 mt-3 shadow-lg text-truncate">{% trans 'Go to Crime' %}</a>
+            </div>
+        </div>
+
+        <p class="lead text-mute {% if LANGUAGE_BIDI %}text-end{% else %}text-start{% endif %}">{% trans 'Enter our world, investigate complex criminal cases, find the clues, and catch the killer.' %}</p>
+
+        <div class="case-container d-flex gap-4 overflow-x-auto py-3 px-2 ">
+
+            <div class="case-card card rounded shadow">
+                <img src="//crime.phoenixfamily.co/static/images/banner.webp" class="card-img-top"
+                     alt="{% trans 'Red Trap' %}">
+                <div class="card-body">
+                    <h5 class="card-title">{% trans 'Red Trap' %}</h5>
+                    <p class="card-text">{% trans 'A mysterious case where no clue of the killer is found at the scene' %}</p>
+                    <div class="d-flex justify-content-center">  <!-- دکمه را وسط قرار می‌دهد -->
+                        <a href="//crime.phoenixfamily.co/"
+                           class="btn btn-lg px-4 py-2 mt-3 shadow-lg">{% trans 'Investigate' %}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card card rounded shadow">
+                <img src="//crime.phoenixfamily.co/static/images/banner.webp" class="card-img-top"
+                     alt="{% trans 'Red Trap' %}">
+                <div class="card-body">
+                    <h5 class="card-title">{% trans 'Red Trap' %}</h5>
+                    <p class="card-text">{% trans 'A mysterious case where no clue of the killer is found at the scene' %}</p>
+                    <div class="d-flex justify-content-center">  <!-- دکمه را وسط قرار می‌دهد -->
+                        <a href="//crime.phoenixfamily.co/"
+                           class="btn btn-lg px-4 py-2 mt-3 shadow-lg">{% trans 'Investigate' %}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card card rounded shadow">
+                <img src="//crime.phoenixfamily.co/static/images/banner.webp" class="card-img-top"
+                     alt="{% trans 'Red Trap' %}">
+                <div class="card-body">
+                    <h5 class="card-title">{% trans 'Red Trap' %}</h5>
+                    <p class="card-text">{% trans 'A mysterious case where no clue of the killer is found at the scene' %}</p>
+                    <div class="d-flex justify-content-center">  <!-- دکمه را وسط قرار می‌دهد -->
+                        <a href="//crime.phoenixfamily.co/"
+                           class="btn btn-lg px-4 py-2 mt-3 shadow-lg">{% trans 'Investigate' %}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card card rounded shadow">
+                <img src="//crime.phoenixfamily.co/static/images/banner.webp" class="card-img-top"
+                     alt="{% trans 'Red Trap' %}">
+                <div class="card-body">
+                    <h5 class="card-title">{% trans 'Red Trap' %}</h5>
+                    <p class="card-text">{% trans 'A mysterious case where no clue of the killer is found at the scene' %}</p>
+                    <div class="d-flex justify-content-center">  <!-- دکمه را وسط قرار می‌دهد -->
+                        <a href="//crime.phoenixfamily.co/"
+                           class="btn btn-lg px-4 py-2 mt-3 shadow-lg">{% trans 'Investigate' %}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card rounded shadow case-card">
+                <img src="//crime.phoenixfamily.co/static/images/banner.webp" class="card-img-top"
+                     alt="{% trans 'Red Trap' %}">
+                <div class="card-body">
+                    <h5 class="card-title">{% trans 'Red Trap' %}</h5>
+                    <p class="card-text">{% trans 'A mysterious case where no clue of the killer is found at the scene' %}</p>
+                    <div class="d-flex justify-content-center">  <!-- دکمه را وسط قرار می‌دهد -->
+                        <a href="//crime.phoenixfamily.co/"
+                           class="btn btn-lg px-4 py-2 mt-3 shadow-lg">{% trans 'Investigate' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section container text-center py-5">
+        <div class="header">
+            <h3 class="text-center text-danger fw-bold">{% trans 'Features of PhoenixFamily' %}</h3>
+        </div>
+        <p class="text-center text-mute">{% trans 'Features that discern us from others' %}</p>
+
+        <div class="row">
+            {% for x in Features %}
+
+                <div class="col-md-4">
+                    <div class="card p-4 rounded shadow value-card">
+                        <i class="{{ x.icon }}"></i>
+                        <h3>{{ x.title }}</h3>
+                        <p>{{ x.description }}</p>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="section container py-5">
+        <div class="row align-items-center">
+
+            {% for x in Content %}
+                <!-- تصویر -->
+                <div class="col-12 col-lg-6 d-flex justify-content-center my-2">
+                    <div class="image-container position-relative">
+                        <img src="{{ x.image.url }}" alt="Entertainment World"
+                             class=" img-fluid rounded shadow-lg">
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6 {% if LANGUAGE_BIDI %}text-end{% else %}text-start{% endif %} my-2">
+                    <div class="card p-4 rounded shadow glass-card">
+                        <h2 class="display-6 fw-bold section-title"> {{ x.title }}</h2>
+                        <p class="lead">
+                            {{ x.description }}
+                        </p>
+                        <a href="{% url 'contact:contact-view' %}"
+                           class="btn btn-lg px-4 py-2 shadow">{% trans 'Verify Idea' %}</a>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </section>
+
+    <section class="section container py-5 text-center">
+        <div class="header">
+            <h3 class="text-danger fw-bold">{% trans 'PhoenixFamily Vision' %}</h3>
+        </div>
+        <p class="text-mute">{% trans 'Empowering creativity and innovation for a brighter tomorrow.' %}</p>
+
+        <!-- نوار زمان (Timeline) با اسکرول افقی -->
+        <div class="vision-container d-flex gap-4 overflow-x-auto py-3 px-2 ">
+            {% for x in Vision %}
+
+                <div class="vision-card card p-4 shadow">
+                    <div class="fs-4 fw-bold text-danger">{{ x.year }}</div>
+                    <h5 class="mt-2"> {{ x.title }}</h5>
+                    <p class="mt-2">{{ x.description }}</p>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </section>
+
+
+{% endblock %}
+
+{% block footer %}
+    <div class="row align-items-center">
+        <!-- لوگوی شرکت -->
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+            <a href="//phoenixfamily.co">
+                <img src="{{ About.logo.url }}" alt="{{ About.name }}" class="img-fluid"
+                     style="max-width: 150px;">
+            </a>
+        </div>
+
+        <!-- اطلاعات تماس -->
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+            <h6 class="mb-2">{% trans "Contact Us" %}</h6>
+            <p class="mb-1">
+                <i class="fas fa-phone-alt contact-icon  me-2"></i>{% trans "Phone" %}: {{ About.number }}
+            </p>
+            <p class="mb-0">
+                <i class="fas fa-envelope contact-icon me-2"></i>{% trans "Email" %}: {{ About.email }}
+            </p>
+        </div>
+
+        <!-- شبکه‌های اجتماعی -->
+        <div class="col-md-4 text-center right">
+            <h6 class="mb-2">{% trans "Follow Us" %}</h6>
+            <div class="social-icons">
+                <a href="{{ About.instagram }}" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="{{ About.telegram }}" class="me-3"><i class="fab fa-telegram fa-lg"></i></a>
+                <a href="{{ About.whatsApp }}" class="me-3"><i class="fab fa-whatsapp fa-lg"></i></a>
+                <a href="{{ About.linkedin }}"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+    const activityLogId = "{{ activity_log_id|default:'' }}"; // مطمئن شوید این مقدار در تمپلیت مقداردهی شده است
+
+    window.addEventListener('beforeunload', function (event) {
+        if (activityLogId) {
+            const data = {
+                activity_log_id: activityLogId,
+                exit_time: new Date().toISOString(),
+            };
+
+            // ارسال داده با fetch به جای sendBeacon
+            fetch("{% url 'user:log_exit_time' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": "{{ csrf_token }}", // اضافه کردن CSRF Token
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    console.error("Failed to log exit time:", response.statusText);
+                }
+            })
+            .catch(error => console.error("Error logging exit time:", error));
+        } else {
+            console.warn("Activity log ID is missing; exit time not logged.");
+        }
+    });
+</script>
+
+{% endblock %}
+
+
+</body>
+</html>

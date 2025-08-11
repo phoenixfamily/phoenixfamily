@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+{% block header %}
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="{% url 'home:home-view' %}">{% trans "Home" %}</a></li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+               aria-expanded="false">{% trans "Products" %}</a>
+            <ul class="dropdown-menu">
+                {% for x in Products %}
+                    <li><a class="dropdown-item" href="{% url 'products:product-view' x.id %}">{{ x.name|capfirst }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'contact:contact-view' %}">{% trans "Contact Us" %}</a>
+        </li>
+        <li class="nav-item"><a class="nav-link active" href="{% url 'about:about-view' %}">{% trans "About Us" %}</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'blogs:blog-view' %}">{% trans "Blogs" %}</a></li>
+    </ul>
+
+         <!-- دکمه تغییر تم -->
+        <div class="ms-3 d-flex align-items-center">
+             <i class="fas fa-sun" id="sun-icon"></i>
+            <div class="ms-2 form-check form-switch">
+                <label for="theme-switch"></label>
+                <input class="form-check-input" type="checkbox" role="switch" id="theme-switch"
+                       aria-label="Toggle theme"/>
+            </div>
+            <i class="fas fa-moon" id="moon-icon"></i>
+        </div>
+
+        <!-- فرم تغییر زبان -->
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <label>
+                <select name="language" class="form-select form-select-sm w-auto"
+                        onchange="this.form.submit()" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                selected{% endif %}>
+                            {{ language.name_local }} ({{ language.code }})
+                        </option>
+                    {% endfor %}
+                </select>
+            </label>
+        </form>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <section class="section container py-5">
+        <div class="card p-4 rounded shadow glass-card">
+            <h2 class="display-6 fw-bold section-title">{{ About.title }}</h2>
+            <p class="lead">
+                {{ About.description }}
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section container py-5">
+        <div class="header text-center ">
+            <h3 class="text-danger fw-bold">{% trans 'FAQ' %}</h3>
+        </div>
+        <p class="text-mute text-center">{% trans 'Find answers to the most frequently asked questions below.' %}</p>
+
+
+        <div class="row">
+            <!-- FAQ Items -->
+            {% for x in FAQ %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card vision-card rounded shadow">
+                        <div class="card-body text-center">
+                            <i class="{{ x.icon }} fa-2x text-danger mb-3 "></i>
+                            <h6 class="fw-bold {% if LANGUAGE_BIDI %}text-end{% else %}text-start{% endif %}">{{ x.title }}</h6>
+                            <p class="text-mute {% if LANGUAGE_BIDI %}text-end{% else %}text-start{% endif %}">
+                                {{ x.description }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- End of FAQ Section -->
+
+
+{% endblock %}
+
+
+{% block footer %}
+    <div class="row align-items-center">
+        <!-- لوگوی شرکت -->
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+            <a href="//phoenixfamily.co">
+                <img src="{{ About.logo.url }}" alt="{{ About.name }}" class="img-fluid" style="max-width: 150px;">
+            </a>
+        </div>
+
+        <!-- اطلاعات تماس -->
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+            <h6 class="mb-2">{% trans "Contact Us" %}</h6>
+            <p class="mb-1">
+                <i class="fas fa-phone-alt contact-icon  me-2"></i>{% trans "Phone" %}: {{ About.number }}
+            </p>
+            <p class="mb-0">
+                <i class="fas fa-envelope contact-icon me-2"></i>{% trans "Email" %}: {{ About.email }}
+            </p>
+        </div>
+
+        <!-- شبکه‌های اجتماعی -->
+        <div class="col-md-4 text-center right">
+            <h6 class="mb-2">{% trans "Follow Us" %}</h6>
+            <div class="social-icons">
+                <a href="{{ About.instagram }}" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="{{ About.telegram }}" class="me-3"><i class="fab fa-telegram fa-lg"></i></a>
+                <a href="{{ About.whatsApp }}" class="me-3"><i class="fab fa-whatsapp fa-lg"></i></a>
+                <a href="{{ About.linkedin }}"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+</body>
+</html>

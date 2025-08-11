@@ -1,0 +1,1218 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-12 01:13+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)"
+
+#: .\PhoenixFamily\settings.py:109
+msgid "Read More"
+msgstr " Daha fazla oku"
+
+
+#: .\PhoenixFamily\settings.py:109
+msgid "Discover Insights, Stories, and Innovations"
+msgstr "İçgörüleri, Hikayeleri ve Yenilikleri Keşfedin"
+
+
+#: .\PhoenixFamily\settings.py:109
+msgid "Phoenix Family | Board Games, Entertainment Apps & More!"
+msgstr "Anka Ailesi | Kutu oyunları, eğlence uygulamaları ve daha fazlası!"
+
+#: .\PhoenixFamily\settings.py:110
+msgid ""
+"Discover Phoenix Family – your ultimate destination for family entertainment! From online entertainment to entertainment apps and and best board games for adults, fun awaits!"
+msgstr ""
+"Anka Ailesi’ni keşfedin – Aile eğlencesi için en iyi destinasyon! Online eğlenceden eğlence uygulamalarına ve yetişkinler için en iyi kutu oyunlarına kadar, eğlence sizi bekliyor!"
+
+#: .\PhoenixFamily\settings.py:113
+msgid "phoenix family"
+msgstr "Anka Ailesi"
+
+#: .\PhoenixFamily\settings.py:114
+msgid "family entertainment"
+msgstr "aile eğlencesi"
+
+#: .\PhoenixFamily\settings.py:115
+msgid "entertainment online"
+msgstr "çevrimiçi eğlence"
+
+#: .\PhoenixFamily\settings.py:116
+msgid "entertainment apps"
+msgstr "eğlence uygulamaları"
+
+#: .\PhoenixFamily\settings.py:117
+msgid "family board games"
+msgstr "aile masa oyunları"
+
+#: .\PhoenixFamily\settings.py:118
+msgid "board game online'"
+msgstr "çevrimiçi masa oyunu"
+
+#: .\PhoenixFamily\settings.py:119
+msgid "board game apps"
+msgstr "masa oyunu uygulamaları"
+
+#: .\PhoenixFamily\settings.py:120
+msgid "game apps"
+msgstr "oyun uygulamaları"
+
+#: .\PhoenixFamily\settings.py:121
+msgid "best entertainment apps"
+msgstr "en iyi eğlence uygulamaları"
+
+#: .\PhoenixFamily\settings.py:122
+msgid "best board games for adults"
+msgstr "yetişkinler için en iyi masa oyunları"
+
+
+msgid "About Us"
+msgstr "Hakkımızda"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Toggle navigation"
+msgstr "Gezinmeyi Aç/Kapat"
+
+msgid "Home"
+msgstr "Ana Sayfa"
+
+msgid "Products"
+msgstr "Ürünler"
+
+msgid "Contact Us"
+msgstr "Bize Ulaşın"
+
+msgid "Blogs"
+msgstr "Bloglar"
+
+msgid "FAQ"
+msgstr "SSS (Sıkça Sorulan Sorular)"
+
+msgid "Find answers to the most frequently asked questions below."
+msgstr "En sık sorulan soruların yanıtlarını aşağıda bulabilirsiniz."
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Email"
+msgstr "E-posta"
+
+#: .\templates\products.html:95
+msgid "Key Features:"
+msgstr "Ana Özellikler:"
+
+
+msgid "Follow Us"
+msgstr "Bizi Takip Edin"
+
+msgid "All rights reserved."
+msgstr "Tüm hakları saklıdır."
+
+msgid "Search"
+msgstr "Ara"
+
+msgid "Get in Touch! 🎉"
+msgstr "Bizimle İletişime Geçin! 🎉"
+
+msgid ""
+"Got an exciting idea for collaboration? Or maybe a question you can’t wait "
+"to get an answer to? We are here and ready to connect with you!"
+msgstr "Heyecan verici bir iş birliği fikriniz mi var? Yoksa sabırsızlıkla yanıt beklediğiniz bir sorunuz mu var? Biz buradayız ve sizinle iletişime geçmeye hazırız!"
+
+msgid "Telegram"
+msgstr "Telegram"
+
+msgid "Whatsapp"
+msgstr "Whatsapp"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "Linkdin"
+msgstr "LinkedIn"
+
+msgid "Fill out the form and send us your message. Our team will eagerly get back to you!"
+msgstr "Formu doldurun ve bize mesajınızı gönderin. Ekibimiz size en kısa sürede dönüş yapacaktır!"
+
+msgid "We’re Looking Forward to Hearing from You! 💬"
+msgstr "Sizden Haber Almayı Dört Gözle Bekliyoruz! 💬"
+
+msgid "Write to us and let the magic of entertainment amaze you! 🌟"
+msgstr "Bize yazın ve eğlencenin büyüsü sizi şaşırtsın! 🌟"
+
+msgid "Name"
+msgstr "İsim"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Upload"
+msgstr "Yükle"
+
+msgid "Send"
+msgstr "Gönder"
+
+msgid "Your browser does not support this format."
+msgstr "Tarayıcınız bu formatı desteklemiyor."
+
+msgid "Create Your Entertainment"
+msgstr "Eğlencenizi Yaratın"
+
+msgid "Crime Cases Platform"
+msgstr "Suç Vakaları Platformu"
+
+msgid "Go to Crime"
+msgstr "Suç’a Git"
+
+msgid ""
+"Enter our world, investigate complex criminal cases, find the clues, and "
+"catch the killer."
+msgstr ""
+"Dünyamıza adım atın, karmaşık suç vakalarını inceleyin, ipuçlarını bulun ve katili yakalayın."
+
+msgid "Red Trap"
+msgstr "Kırmızı Tuzak"
+
+msgid "A mysterious case where no clue of the killer is found at the scene"
+msgstr "Katilin hiçbir izinin bulunmadığı gizemli bir vaka"
+
+msgid "Investigate"
+msgstr "Soruştur"
+
+msgid "Features of PhoenixFamily"
+msgstr "PhoenixFamily Özellikleri"
+
+msgid "Features that discern us from others"
+msgstr "Bizi başkalarından ayıran özellikler"
+
+msgid "Verify Idea"
+msgstr "Fikri Doğrula"
+
+msgid "PhoenixFamily Vision"
+msgstr "PhoenixFamily Vizyonu"
+
+msgid "Empowering creativity and innovation for a brighter tomorrow."
+msgstr "Daha parlak bir yarın için yaratıcılığı ve yeniliği güçlendirmek."
+
+msgid "Are you ready to start?"
+msgstr "Başlamaya hazır mısınız?"
+
+msgid "Messages"
+msgstr "Mesajlar"
+
+msgid "Site Maps"
+msgstr "Site Haritaları"
+
+msgid "Static Files"
+msgstr "Statik Dosyalar"
+
+msgid "Syndication"
+msgstr "Syndication"
+
+msgid "…"
+msgstr "…"
+
+msgid "That page number is not an integer"
+msgstr "Bu sayfa numarası bir tam sayı değil"
+
+msgid "That page number is less than 1"
+msgstr "Bu sayfa numarası 1'den küçük"
+
+msgid "That page contains no results"
+msgstr "Bu sayfada sonuç bulunmamaktadır"
+
+msgid "Enter a valid value."
+msgstr "Geçerli bir değer girin."
+
+msgid "Enter a valid URL."
+msgstr "Geçerli bir URL girin."
+
+msgid "Enter a valid integer."
+msgstr "Geçerli bir tam sayı girin."
+
+msgid "Enter a valid email address."
+msgstr "Geçerli bir e-posta adresi girin."
+
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+"Harfler, rakamlar, alt çizgi veya tirelerden oluşan geçerli bir “slug” girin."
+
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+"Unicode harfler, rakamlar, alt çizgi veya tirelerden oluşan geçerli bir “slug” girin."
+
+msgid "Enter a valid IPv4 address."
+msgstr "Geçerli bir IPv4 adresi girin."
+
+msgid "Enter a valid IPv6 address."
+msgstr "Geçerli bir IPv6 adresi girin."
+
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr "Geçerli bir IPv4 veya IPv6 adresi girin."
+
+msgid "Enter only digits separated by commas."
+msgstr "Sadece virgülle ayrılmış rakamlar girin."
+
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr "Bu değerin %(limit_value)s olmasını sağlayın (şu anki değeri %(show_value)s)."
+
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr "Bu değerin %(limit_value)s'den küçük veya eşit olmasını sağlayın."
+
+
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr "Bu değerin %(limit_value)s veya daha büyük olmasını sağlayın."
+
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr "Bu değerin adım boyutu %(limit_value)s katı olmasını sağlayın."
+
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Enter a number."
+msgstr "Bir sayı girin."
+
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+"“%(extension)s” dosya uzantısına izin verilmiyor. İzin verilen uzantılar: "
+"%(allowed_extensions)s."
+
+msgid "Null characters are not allowed."
+msgstr "Null karakterlere izin verilmez."
+
+msgid "and"
+msgstr "ve"
+
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr "%(model_name)s bu %(field_labels)s ile zaten var."
+
+msgid "Constraint “%(name)s” is violated."
+msgstr "“%(name)s” kısıtlaması ihlal edilmiştir."
+
+msgid "Value %(value)r is not a valid choice."
+msgstr "%(value)r değeri geçerli bir seçenek değildir."
+
+msgid "This field cannot be null."
+msgstr "Bu alan boş olamaz."
+
+msgid "This field cannot be blank."
+msgstr "Bu alan boş bırakılamaz."
+
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr "%(model_name)s bu %(field_label)s ile zaten var."
+
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+"%(field_label)s %(date_field_label)s %(lookup_type)s için benzersiz olmalıdır."
+
+msgid "Field of type: %(field_type)s"
+msgstr "Türündeki alan: %(field_type)s"
+
+msgid "“%(value)s” value must be either True or False."
+msgstr "“%(value)s” değeri ya True ya da False olmalıdır."
+
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr "“%(value)s” değeri ya True, False ya da None olmalıdır."
+
+msgid "Boolean (Either True or False)"
+msgstr "Boolean (Ya True ya da False)"
+
+msgid "String (up to %(max_length)s)"
+msgstr "Dize (en fazla %(max_length)s)"
+
+msgid "String (unlimited)"
+msgstr "Dize (sınırsız)"
+
+msgid "Comma-separated integers"
+msgstr "Virgülle ayrılmış tam sayılar"
+
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+"“%(value)s” değeri geçersiz bir tarih formatına sahip. YYYY-MM-DD formatında olmalıdır."
+
+
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+"“%(value)s” değeri doğru formatta (YYYY-MM-DD) fakat geçersiz bir tarihe sahip."
+
+msgid "Date (without time)"
+msgstr "Tarih (saat olmadan)"
+
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
+msgstr ""
+"“%(value)s” değeri geçersiz bir formata sahip. YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] formatında olmalıdır."
+
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+"“%(value)s” değeri doğru formatta (YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]) fakat geçersiz bir tarih/saat değerine sahip."
+
+msgid "Date (with time)"
+msgstr "Tarih (saat ile)"
+
+msgid "“%(value)s” value must be a decimal number."
+msgstr "“%(value)s” değeri ondalıklı bir sayı olmalıdır."
+
+msgid "Decimal number"
+msgstr "Ondalıklı sayı"
+
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
+msgstr ""
+"“%(value)s” değeri geçersiz bir formata sahip. [DD] [[HH:]MM:]ss[.uuuuuu] formatında olmalıdır."
+
+msgid "Duration"
+msgstr "Süre"
+
+msgid "Email address"
+msgstr "E-posta adresi"
+
+msgid "File path"
+msgstr "Dosya yolu"
+
+msgid "“%(value)s” value must be a float."
+msgstr "“%(value)s” değeri bir ondalıklı sayı (float) olmalıdır."
+
+msgid "Floating point number"
+msgstr "Ondalıklı sayı"
+
+msgid "“%(value)s” value must be an integer."
+msgstr "“%(value)s” değeri bir tam sayı olmalıdır."
+
+msgid "Integer"
+msgstr "Tam sayı"
+
+msgid "Big (8 byte) integer"
+msgstr "Büyük (8 bayt) tam sayı"
+
+msgid "Small integer"
+msgstr "Küçük tam sayı"
+
+msgid "IPv4 address"
+msgstr "IPv4 adresi"
+
+msgid "IP address"
+msgstr "IP adresi"
+
+msgid "“%(value)s” value must be either None, True or False."
+msgstr "“%(value)s” değeri ya None, True ya da False olmalıdır."
+
+msgid "Boolean (Either True, False or None)"
+msgstr "Boolean (Ya True, False ya da None)"
+
+msgid "Positive big integer"
+msgstr "Pozitif büyük tam sayı"
+
+msgid "Positive integer"
+msgstr "Pozitif tam sayı"
+
+msgid "Positive small integer"
+msgstr "Pozitif küçük tam sayı"
+
+msgid "Slug (up to %(max_length)s)"
+msgstr "Slug (en fazla %(max_length)s)"
+
+msgid "Text"
+msgstr "Metin"
+
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+"“%(value)s” değeri geçersiz bir formata sahip. HH:MM[:ss[.uuuuuu]] formatında olmalıdır."
+
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+"“%(value)s” değeri doğru formatta (HH:MM[:ss[.uuuuuu]]) fakat geçersiz bir zaman değerine sahip."
+
+msgid "Time"
+msgstr "Zaman"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Raw binary data"
+msgstr "Ham ikili veri"
+
+msgid "“%(value)s” is not a valid UUID."
+msgstr "“%(value)s” geçerli bir UUID değildir."
+
+msgid "Universally unique identifier"
+msgstr "Evrensel benzersiz tanımlayıcı"
+
+msgid "File"
+msgstr "Dosya"
+
+msgid "Image"
+msgstr "Görüntü"
+
+msgid "A JSON object"
+msgstr "Bir JSON nesnesi"
+
+msgid "Value must be valid JSON."
+msgstr "Değer geçerli bir JSON olmalıdır."
+
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr "%(model)s örneği %(field)s %(value)r mevcut değildir."
+
+msgid "Foreign Key (type determined by related field)"
+msgstr "Yabancı Anahtar (ilişkili alan tarafından belirlenen tür)"
+
+msgid "One-to-one relationship"
+msgstr "Bir-bir ilişkisi"
+
+msgid "%(from)s-%(to)s relationship"
+msgstr "%(from)s-%(to)s ilişkisi"
+
+msgid "%(from)s-%(to)s relationships"
+msgstr "%(from)s-%(to)s ilişkileri"
+
+msgid "Many-to-many relationship"
+msgstr "Çoktan-çoğa ilişkisi"
+
+msgid ":?.!"
+msgstr ":?.!"
+
+msgid "This field is required."
+msgstr "Bu alan gereklidir."
+
+msgid "Enter a whole number."
+msgstr "Bir tam sayı girin."
+
+msgid "Enter a valid date."
+msgstr "Geçerli bir tarih girin."
+
+msgid "Enter a valid time."
+msgstr "Geçerli bir saat girin."
+
+msgid "Enter a valid date/time."
+msgstr "Geçerli bir tarih/saat girin."
+
+msgid "Enter a valid duration."
+msgstr "Geçerli bir süre girin."
+
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr "Gün sayısı {min_days} ile {max_days} arasında olmalıdır."
+
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr "Hiç dosya gönderilmedi. Formdaki kodlama türünü kontrol edin."
+
+msgid "No file was submitted."
+msgstr "Hiç dosya gönderilmedi."
+
+msgid "The submitted file is empty."
+msgstr "Gönderilen dosya boş."
+
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural "Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] "Bu dosya adı en fazla %(max)d karaktere sahip olmalıdır (şu an %(length)d)."
+msgstr[1] "Bu dosya adı en fazla %(max)d karaktere sahip olmalıdır (şu an %(length)d)."
+
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr "Lütfen ya bir dosya gönderin ya da temizle kutusunu işaretleyin, ikisini birden yapmayın."
+
+msgid "Upload a valid image. The file you uploaded was either not an image or a corrupted image."
+msgstr "Geçerli bir görüntü yükleyin. Yüklediğiniz dosya ya bir görüntü değil ya da bozulmuş bir görüntüdür."
+
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr "Geçerli bir seçenek seçin. %(value)s mevcut seçeneklerden biri değildir."
+
+msgid "Enter a list of values."
+msgstr "Bir değerler listesi girin."
+
+msgid "Enter a complete value."
+msgstr "Tam bir değer girin."
+
+msgid "Enter a valid UUID."
+msgstr "Geçerli bir UUID girin."
+
+msgid "Enter a valid JSON."
+msgstr "Geçerli bir JSON girin."
+
+msgid ":"
+msgstr ":"
+
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr "(Gizli alan %(name)s) %(error)s"
+
+msgid "ManagementForm data is missing or has been tampered with. Missing fields: %(field_names)s. You may need to file a bug report if the issue persists."
+msgstr "ManagementForm verisi eksik veya değiştirilmiş. Eksik alanlar: %(field_names)s. Sorun devam ederse bir hata raporu göndermeniz gerekebilir."
+
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] "Lütfen en fazla %(num)d form gönderin."
+msgstr[1] "Lütfen en fazla %(num)d form gönderin."
+
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] "Lütfen en az %(num)d form gönderin."
+msgstr[1] "Lütfen en az %(num)d form gönderin."
+
+msgid "Order"
+msgstr "Sıra"
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "Please correct the duplicate data for %(field)s."
+msgstr "Lütfen %(field)s için tekrarlanan veriyi düzeltin."
+
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr "Lütfen %(field)s için tekrarlanan veriyi düzeltin, bu değer benzersiz olmalıdır."
+
+msgid "Please correct the duplicate data for %(field_name)s which must be unique for the %(lookup)s in %(date_field)s."
+msgstr "Lütfen %(field_name)s için tekrarlanan veriyi düzeltin, bu değer %(lookup)s için %(date_field)s' de benzersiz olmalıdır."
+
+msgid "Please correct the duplicate values below."
+msgstr "Lütfen aşağıdaki tekrarlanan değerleri düzeltin."
+
+msgid "The inline value did not match the parent instance."
+msgstr "Satır içi değer ana örnekle uyuşmadı."
+
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr "Geçerli bir seçenek seçin. Bu seçenek mevcut seçeneklerden biri değildir."
+
+msgid "“%(pk)s” is not a valid value."
+msgstr "“%(pk)s” geçerli bir değer değildir."
+
+msgid "%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it may be ambiguous or it may not exist."
+msgstr "%(datetime)s, %(current_timezone)s zaman diliminde yorumlanamadı; belirsiz olabilir veya mevcut olmayabilir."
+
+msgid "Clear"
+msgstr "Temizle"
+
+msgid "Currently"
+msgstr "Şu anda"
+
+msgid "Change"
+msgstr "Değiştir"
+
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+msgid "Yes"
+msgstr "Evet"
+
+msgid "No"
+msgstr "Hayır"
+
+msgid "yes,no,maybe"
+msgstr "evet,hayıır,bilmiyorum"
+
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] "%(size)d bayt"
+msgstr[1] "%(size)d bayt"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:923
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:925
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:927
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:929
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:931
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:73
+msgid "p.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:74
+msgid "a.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:79
+msgid "PM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:80
+msgid "AM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:152
+msgid "midnight"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:154
+msgid "noon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:21
+msgid "Sat"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:27
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:8
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:137
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:322
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: .\venv\Lib\site-packages\django\utils\text.py:341
+#: .\venv\Lib\site-packages\django\utils\timesince.py:135
+msgid ", "
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:111
+msgid "Forbidden"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:112
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:116
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:122
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:127
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:136
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:142
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:148
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:64
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:115
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:349
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:380
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:652
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:692
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:169
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:38
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:40
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:79
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:220
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:221
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:229
+msgid "Django Documentation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:230
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:238
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:239
+msgid "Get started with Django"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:247
+msgid "Django Community"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:248
+msgid "Connect, get help, or contribute"
+msgstr ""

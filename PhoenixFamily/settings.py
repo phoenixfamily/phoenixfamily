@@ -2,6 +2,8 @@ import os
 from pathlib import Path
 from datetime import timedelta
 from django.utils.translation import gettext_lazy as _
+from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,17 +12,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-at+z71p&8n4sf$r_5=ux5jb=ha2!h7^pp&2s470qb8&4+3^-ig'
+# SECRET_KEY = 'django-insecure-at+z71p&8n4sf$r_5=ux5jb=ha2!h7^pp&2s470qb8&4+3^-ig'
 
+SECRET_KEY = config("SECRET_KEY")
+# SECRET_KEY = 'django-insecure-at+z71p&8n4sf$r_5=ux5jb=ha2!h7^pp&2s470qb8&4+3^-ig'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config("DEBUG", default=False, cast=bool)
+
 
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
-DOMAIN = 'phoenixfamily.co'
+DOMAIN = 'phoenixfamily.ir'
 SITE_NAME = 'PhoenixFamily'
-SITE_URL = "https://phoenixfamily.co"
+SITE_URL = "https://phoenixfamily.ir"
 
 SITE_ID = 1
 
@@ -29,13 +34,13 @@ META_USE_OG_PROPERTIES = True
 META_USE_TWITTER_PROPERTIES = True
 META_USE_SCHEMAORG_PROPERTIES = True
 
-CSRF_TRUSTED_ORIGINS = ["https://phoenixfamily.co", "https://www.phoenixfamily.co"]
+CSRF_TRUSTED_ORIGINS = ["https://phoenixfamily.ir", "https://www.phoenixfamily.ir"]
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    'phoenixfamily.co',
-    'www.phoenixfamily.co'
+    'phoenixfamily.ir',
+    'www.phoenixfamily.ir'
 
 ]
 
@@ -110,15 +115,12 @@ WSGI_APPLICATION = 'PhoenixFamily.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'phoenixf_PhoenixFamily',  # نام دیتابیس
-        'USER': 'phoenixf_db',  # نام کاربری دیتابیس
-        'PASSWORD': 'Y^R+cB{MA1n%',  # رمز عبور دیتابیس
-        'HOST': 'localhost',  # آدرس سرور MySQL (یا آدرس دلخواه)
-        'PORT': '3306',  # پورت MySQL (پورت پیش‌فرض: 3306)
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default='5432'),
     }
 }
 
@@ -238,15 +240,14 @@ LOCALE_PATHS = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_ROOT = '/home/phoenixf/public_html/static/'
-STATIC_URL = '/static/'
+# فایل‌های استاتیک (CSS, JS, Images)
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # فولدر نهایی برای nginx
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # اگر فایل استاتیکی دارید که در مسیر پروژه هستند.
-]
-
-MEDIA_ROOT = '/home/phoenixf/public_html/media/'
+# فایل‌های رسانه‌ای که کاربر آپلود می‌کنه
 MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 ROBOTS_FILE_PATH = '/home/abbaslot/public_html/robots.txt/'
 

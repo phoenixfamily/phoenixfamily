@@ -3,6 +3,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
+from django.views.generic import RedirectView
+
 from Blog.sitemap import *
 from PhoenixFamily import settings
 from django.conf.urls.i18n import set_language
@@ -36,6 +38,7 @@ urlpatterns += i18n_patterns(
     path('user/', include('User.urls', namespace='user')),  # مسیر URLهای اپلیکیشن User
     path('auth/', include('Authentication.urls', namespace='authentication')),  # مسیر URLهای اپلیکیشن Authentication
     path('seo/', include('Seo.urls', namespace='seo')),  # مسیر URLهای اپلیکیشن Authentication
+    path('', RedirectView.as_view(url='home/', permanent=True)),  # ریدایرکت دائمی
 
 )
 

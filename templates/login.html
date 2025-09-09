@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="login-wrap" id="page">
+        <div class="card login-card">
+            <div class="row g-0">
+                <!-- سمت چپ: برند و توضیح -->
+                <div class="col-12 login-left">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="{% static 'images/logo.png' %}" alt="logo" class="brand-logo">
+                            <div>
+                                <h4 class="mb-0" style="color:var(--primary-dark)">PhoenixFamily</h4>
+                                <div class="small-muted">پنل مدیریت — خوش اومدی</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button id="darkToggle" class="btn btn-sm" title="حالت تاریک">
+                                <span class="toggle-dark">🌙</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="border-color: rgba(0,0,0,0.06)">
+
+                    <!-- فرم ورود -->
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        {% if messages %}
+                            <div class="mb-2">
+                                {% for msg in messages %}
+                                    <div class="alert alert-{{ msg.tags }} p-2">{{ msg }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <div class="mb-3 input-with-icon">
+                            <label class="form-label">پست الکترونیک</label>
+                            <input type="email" name="username" id="id_username" class="form-control form-control-lg"
+                                   placeholder="you@domain.com" required>
+                            <i class="icon bi bi-envelope-fill"></i>
+                        </div>
+
+                        <div class="mb-3 input-with-icon">
+                            <label class="form-label">رمز عبور</label>
+                            <input type="password" name="password" id="id_password" class="form-control form-control-lg"
+                                   placeholder="••••••••" required>
+                            <i class="icon bi bi-lock-fill"></i>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                                <label class="form-check-label small-muted" for="remember">مرا به خاطر بسپار</label>
+                            </div>
+                            <a href="#" class="small-muted">فراموشی رمز؟</a>
+                        </div>
+
+                        <button type="submit" class="btn w-100"
+                                style="background:var(--btn-bg); color:var(--btn-text); font-weight:600;">
+                            ورود به پنل
+                        </button>
+
+                        <div class="text-center mt-3 small-muted">
+                            ورود امن با TLS • پشتیبانی چند دامنه
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-3 small-muted">
+                        © {{ year }} PhoenixFamily
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+{% block footer %}
+    <div class="row align-items-center">
+        <!-- لوگوی شرکت -->
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+            <a href="//phoenixfamily.co">
+                <img src="{{ About.logo.url }}" alt="{{ About.name }}" class="img-fluid" style="max-width: 150px;">
+            </a>
+        </div>
+
+        <!-- اطلاعات تماس -->
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+            <h6 class="mb-2">{% trans "Contact Us" %}</h6>
+            <p class="mb-1">
+                <i class="fas fa-phone-alt contact-icon  me-2"></i>{% trans "Phone" %}: {{ About.number }}
+            </p>
+            <p class="mb-0">
+                <i class="fas fa-envelope contact-icon me-2"></i>{% trans "Email" %}: {{ About.email }}
+            </p>
+        </div>
+
+        <!-- شبکه‌های اجتماعی -->
+        <div class="col-md-4 text-center right">
+            <h6 class="mb-2">{% trans "Follow Us" %}</h6>
+            <div class="social-icons">
+                <a href="{{ About.instagram }}" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="{{ About.telegram }}" class="me-3"><i class="fab fa-telegram fa-lg"></i></a>
+                <a href="{{ About.whatsApp }}" class="me-3"><i class="fab fa-whatsapp fa-lg"></i></a>
+                <a href="{{ About.linkedin }}"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

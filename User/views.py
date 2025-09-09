@@ -1,16 +1,18 @@
 import json
 import uuid
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+from django.template import loader
 from django.utils.timezone import now
+from django.views.decorators.csrf import csrf_exempt
 from django_user_agents.utils import get_user_agent
 from .models import User, UserDeviceInfo, UserActivityLog
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.utils.crypto import get_random_string
 from .serializers import UserSerializer
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from rest_framework.exceptions import NotFound
 
 
@@ -160,3 +162,50 @@ class UserCRUDView(ModelViewSet):
 #         """Retrieve user based on the `number` field instead of `pk`."""
 #         number = self.kwargs.get("number")  # Get `number` from URL
 #         return get_object_or_404(User, number=number)
+
+@csrf_exempt
+def login_view(request):
+    template = loader.get_template('login.html')
+    if request.user.is_authenticated:
+        if request.user.is_staff:
+            # ریدایرکت به داشبورد ادمین
+            return redirect(f'/user/home/manager/{request.user.id}/')
+
+        elif request.user.is_admin:
+            return redirect(f'/user/home/admin/{request.user.id}/')
+
+        else:
+            # ریدایرکت به داشبورد کاربر عادی
+            return redirect(f'/user/home/user/{request.user.id}/')
+    else:
+        return HttpResponse(template.render(request))
+
+
+
+@csrf_exempt
+def custom_login(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            number = data.get('username')  # دریافت شماره به عنوان username
+            password = data.get('password')
+
+            # اعتبارسنجی پسورد
+            user = authenticate(request, username=number, password=password)
+            if user is not None:
+                login(request, user)
+                user_data = {
+                    'id': user.id,
+                    'is_staff': user.is_staff,
+                    'is_admin': user.is_admin,
+                }
+                return JsonResponse({'status': 'success', 'user': user_data}, status=200)
+            else:
+                return JsonResponse({'error': 'پسورد اشتباه است'}, status=400)
+
+        except User.DoesNotExist:
+            return JsonResponse({'error': 'نام کاربری وجود ندارد'}, status=404)
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'فرمت JSON نامعتبر است'}, status=400)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)

@@ -1,63 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load i18n %}
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-
-
-{% block header %}
-    <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="{% url 'home:home-view' %}">{% trans "Home" %}</a></li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-               aria-expanded="false">{% trans "Products" %}</a>
-            <ul class="dropdown-menu">
-                {% for x in products %}
-                    <li><a class="dropdown-item" href="{% url 'products:product-view' x.id %}">{{ x.name|capfirst }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'contact:contact-view' %}">{% trans "Contact Us" %}</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'about:about-view' %}">{% trans "About Us" %}</a></li>
-        <li class="nav-item"><a class="nav-link active" href="{% url 'blogs:blog-view' %}">{% trans "Blogs" %}</a></li>
-    </ul>
-
-         <!-- دکمه تغییر تم -->
-        <div class="ms-3 d-flex align-items-center">
-             <i class="fas fa-sun" id="sun-icon"></i>
-            <div class="ms-2 form-check form-switch">
-                <label for="theme-switch"></label>
-                <input class="form-check-input" type="checkbox" role="switch" id="theme-switch"
-                       aria-label="Toggle theme"/>
-            </div>
-            <i class="fas fa-moon" id="moon-icon"></i>
-        </div>
-
-        <!-- فرم تغییر زبان -->
-        <form action="{% url 'set_language' %}" method="post">
-            {% csrf_token %}
-            <label>
-                <select name="language" class="form-select form-select-sm w-auto"
-                        onchange="this.form.submit()" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
-                    {% get_current_language as LANGUAGE_CODE %}
-                    {% get_available_languages as LANGUAGES %}
-                    {% get_language_info_list for LANGUAGES as languages %}
-                    {% for language in languages %}
-                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
-                                selected{% endif %}>
-                            {{ language.name_local }} ({{ language.code }})
-                        </option>
-                    {% endfor %}
-                </select>
-            </label>
-        </form>
-
-{% endblock %}
 
 
 {% block content %}
@@ -167,6 +109,3 @@
 
 {% endblock %}
 
-
-</body>
-</html>

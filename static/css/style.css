@@ -49,16 +49,17 @@ body.dark-mode {
 }
 
 
-.text-mute{
+.text-mute {
     color: var(--text-color-muted) !important;
 }
+
 .navbar {
     background-color: var(--navbar-bg);
     border-bottom: 2px solid var(--navbar-border);
 }
 
 .nav-link {
-    color: var(--nav-link-color)!important;
+    color: var(--nav-link-color) !important;
     transition: color 0.3s ease;
 }
 
@@ -95,29 +96,29 @@ select.form-select option:hover {
 /* تغییر رنگ سوییچ به رنگ قرمز */
 .form-check-input {
     background-color: #EBEBE4; /* رنگ دایره در حالت فعال */
-    border-color: var(--navbar-border)  !important; /* رنگ مرز (قرمز لوگو) */
-    box-shadow: 0 0 1px var(--navbar-border) ; /* سایه دور سوییچ */
+    border-color: var(--navbar-border) !important; /* رنگ مرز (قرمز لوگو) */
+    box-shadow: 0 0 1px var(--navbar-border); /* سایه دور سوییچ */
     transition: all 0.3s ease-in-out; /* انیمیشن تغییر */
 }
 
 /* تغییر رنگ هنگام فعال بودن (روشن) */
 .form-check-input:checked {
-    background-color: var(--navbar-border) ; /* رنگ دایره در حالت فعال */
-    border-color: var(--navbar-border) ;
-    box-shadow: 0 0 1px var(--navbar-border) ; /* سایه بیشتر برای حالت روشن */
+    background-color: var(--navbar-border); /* رنگ دایره در حالت فعال */
+    border-color: var(--navbar-border);
+    box-shadow: 0 0 1px var(--navbar-border); /* سایه بیشتر برای حالت روشن */
 }
 
 
 /* تغییر سایه و استایل هنگام فوکوس */
 .form-check-input:focus {
-    box-shadow: 0 0 1px var(--navbar-border) ; /* سایه هنگام فوکوس */
-    border-color: var(--navbar-border) ;
+    box-shadow: 0 0 1px var(--navbar-border); /* سایه هنگام فوکوس */
+    border-color: var(--navbar-border);
 
 }
 
 .form-check-input:checked:focus {
-    box-shadow: 0 0 1px var(--navbar-border) ; /* سایه هنگام فوکوس */
-    border-color: var(--navbar-border) ;
+    box-shadow: 0 0 1px var(--navbar-border); /* سایه هنگام فوکوس */
+    border-color: var(--navbar-border);
 }
 
 .nav-item.align-items-center {
@@ -346,7 +347,8 @@ section a:hover {
 }
 
 .card-body {
-    background-color: var(--navbar-bg) ;!important;
+    background-color: var(--navbar-bg);
+!important;
     color: var(--text-color) !important;
 }
 
@@ -370,7 +372,7 @@ section a:hover {
 
 .glass-card {
     position: relative;
-    background-color: var(--navbar-bg)!important;
+    background-color: var(--navbar-bg) !important;
     backdrop-filter: blur(15x);
     -webkit-backdrop-filter: blur(20px); /* پشتیبانی از سافاری */
     border-radius: 15px;
@@ -415,7 +417,7 @@ section a:hover {
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    z-index: 10!important;
+    z-index: 10 !important;
 }
 
 .play-button:hover {
@@ -438,7 +440,7 @@ section a:hover {
 
 .value-card {
     position: relative;
-    background: var(--navbar-bg) !important ;
+    background: var(--navbar-bg) !important;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -484,7 +486,7 @@ form .form-control:focus {
 }
 
 .form-select {
-    background: var(--navbar-bg) !important ;
+    background: var(--navbar-bg) !important;
     color: var(--text-color);
 }
 
@@ -541,7 +543,7 @@ textarea::placeholder {
 
 .case-card {
     transition: transform 0.3s, box-shadow 0.3s;
-    background-color: var(--navbar-bg)!important;
+    background-color: var(--navbar-bg) !important;
     width: 60%; /* تغییر عرض کارت‌ها */
     max-width: 300px; /* حداکثر عرض برای کنترل در صفحه‌های بزرگ */
     color: var(--text-color);
@@ -611,7 +613,7 @@ textarea::placeholder {
 }
 
 .vision-card {
-    background: var(--navbar-bg) !important ;
+    background: var(--navbar-bg) !important;
     scroll-snap-align: center; /* مرکز چین شدن کارت‌ها */
     transition: transform 0.3s ease-in-out; /* انیمیشن برای حس بهتر */
     flex: 0 0 80%; /* هر کارت دقیقاً اندازه کل عرض صفحه */
@@ -627,4 +629,62 @@ textarea::placeholder {
 
 .text-danger {
     color: var(--btn-bg) !important;
+}
+
+.login-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    width: 420px;
+    max-width: 95%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.login-left {
+    padding: 28px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.01));
+}
+
+.brand-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.toggle-dark {
+    cursor: pointer;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon input {
+    padding-right: 3rem;
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color-muted);
+}
+
+.small-muted {
+    font-size: 0.9rem;
+    color: var(--text-color-muted);
+}
+
+@media (max-width: 576px) {
+    .login-card {
+        width: 92%;
+    }
 }

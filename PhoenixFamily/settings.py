@@ -1,4 +1,5 @@
 import os
+from email.policy import default
 from pathlib import Path
 from datetime import timedelta
 from django.utils.translation import gettext_lazy as _
@@ -12,10 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-at+z71p&8n4sf$r_5=ux5jb=ha2!h7^pp&2s470qb8&4+3^-ig'
-
 SECRET_KEY = config("SECRET_KEY")
-# SECRET_KEY = 'django-insecure-at+z71p&8n4sf$r_5=ux5jb=ha2!h7^pp&2s470qb8&4+3^-ig'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
@@ -69,6 +67,7 @@ INSTALLED_APPS = [
     'User',
     'Authentication',
     'Seo',
+    'WebMail',
 
 ]
 
@@ -249,7 +248,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-ROBOTS_FILE_PATH = '/home/abbaslot/public_html/robots.txt/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

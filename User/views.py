@@ -12,7 +12,7 @@ from .serializers import UserSerializer
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from rest_framework.exceptions import NotFound
 
 
@@ -165,7 +165,7 @@ class UserCRUDView(ModelViewSet):
 
 @csrf_exempt
 def login_view(request):
-    template = loader.get_template('login.html')
+    # template = loader.get_template('login.html')
     # if request.user.is_authenticated:
     #     if request.user.is_staff:
     #         # ریدایرکت به داشبورد ادمین
@@ -178,7 +178,8 @@ def login_view(request):
     #         # ریدایرکت به داشبورد کاربر عادی
     #         return redirect(f'/user/home/user/{request.user.id}/')
     # else:
-    return HttpResponse(template.render(request))
+    #     return HttpResponse(template.render(request))
+    return render(request, 'login.html')
 
 
 

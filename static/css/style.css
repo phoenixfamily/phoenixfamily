@@ -662,3 +662,13 @@ textarea::placeholder {
     font-size: 0.9rem;
     color: var(--text-color-muted);
 }
+
+.form-outline .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 45%;
+    transform: translateY(-45%);
+    cursor: pointer;
+    color: #ccc;
+}
+

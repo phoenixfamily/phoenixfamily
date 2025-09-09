@@ -32,7 +32,7 @@ urlpatterns = [
     path('api/create-temporary-user/', get_or_create_temporary_user, name='create_temporary_user'),
     path('api/log-activity/', log_user_activity, name='log_activity'),
     path('api/log-exit-time/', log_exit_time, name='log_exit_time'),
-    path("login/", login_view(), name="login-view"),
+    path("login/", login_view, name="login-view"),
 
     # Include the router URLs for UserCRUDView
     path('api/', include(router.urls)),

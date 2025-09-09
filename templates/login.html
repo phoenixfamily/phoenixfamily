@@ -55,7 +55,7 @@
                 const username = '+98' + document.getElementById("number").value;
                 const password = document.getElementById("password").value;
 
-                const response = await fetch("{% url 'user:login_api' %}", {
+                const response = await fetch("", {
                     method: "POST",
                     headers: {'Content-Type': "application/json"},
                     body: JSON.stringify({username, password})

@@ -31,7 +31,7 @@ urlpatterns = [
     path("api/users/create-temporary/", get_or_create_temporary_user, name="create_temporary_user"),
     path("api/users/log-activity/", log_user_activity, name="log_activity"),
     path("api/users/log-exit/", log_exit_time, name="log_exit_time"),
-    path("api/users/login/", login_view, name="login_view"),
+    path("/login/", login_view, name="login_view"),
     path("api/users/", include(router.urls)),
 ]
 

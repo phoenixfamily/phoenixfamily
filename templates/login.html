@@ -8,31 +8,31 @@
     <section class="swiper-section py-5">
         <div class="container">
             <div class="login-card rounded p-4 w-100">
-                <h3 class="mb-4 text-center fw-bold">ورود به حساب</h3>
-                <p>لطفاً نام کاربری و رمز عبور خود را وارد کنید</p>
+                <h3 class="mb-4 text-center fw-bold">{% trans "Login" %}</h3>
+                <p>{% trans "please enter your username and password." %}</p>
                 {% csrf_token %}
                 <form>
                     <div class="form-outline form-white mb-4">
-                        <input type="tel" id="number" class="form-control form-control-lg" placeholder="9123456780"
+                        <input type="tel" id="number" class="form-control form-control-lg" placeholder="{% trans 'username' %}"
                                required/>
-                        <label class="form-label" for="number">موبایل</label>
+                        <label class="form-label" for="number"></label>
                     </div>
 
-                        <div class="form-outline form-white mb-4 position-relative" dir="ltr">
+                        <div class="form-outline form-white mb-4 position-relative">
 
-                        <input type="password" id="password" class="form-control form-control-lg px-2" placeholder="رمز عبور"
+                        <input type="password" id="password" class="form-control form-control-lg px-2" placeholder="{% trans 'password' %}"
                                required/>
                         <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                        <label for="password">رمز عبور</label>
+                        <label for="password"></label>
                     </div>
 
                     <p class="small mb-4">
-                        <a href=" ">فراموشی رمز عبور؟</a>
+                        <a href=" ">{% trans 'Forgot your password?' %}</a>
                     </p>
-                    <button id="submit" class="btn btn-cta btn-lg px-5" type="submit">ورود</button>
+                    <button id="submit" class="btn btn-cta btn-lg px-5" type="submit">{% trans "Login" %}</button>
                 </form>
 
-                <p class="mt-4">اکانت ندارید؟ <a href="">ثبت‌نام کنید</a></p>
+                <p class="mt-4">{% trans "Don't have an account?" %}<a href="">{% trans "register" %}</a></p>
             </div>
 
         </div>

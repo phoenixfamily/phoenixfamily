@@ -25,15 +25,13 @@ app_name = "user"
 
 # Create a router for the UserCRUDView (ModelViewSet)
 router = CustomRouter()
-router.register(r'user-CRUD', UserCRUDView, basename='user')
+router.register(r'users', UserCRUDView, basename='user')
 
 urlpatterns = [
-    # Function-based views
-    path('api/create-temporary-user/', get_or_create_temporary_user, name='create_temporary_user'),
-    path('api/log-activity/', log_user_activity, name='log_activity'),
-    path('api/log-exit-time/', log_exit_time, name='log_exit_time'),
-    path("login/", login_view, name="login-view"),
-
-    # Include the router URLs for UserCRUDView
-    path('api/', include(router.urls)),
+    path("api/users/create-temporary/", get_or_create_temporary_user, name="create_temporary_user"),
+    path("api/users/log-activity/", log_user_activity, name="log_activity"),
+    path("api/users/log-exit/", log_exit_time, name="log_exit_time"),
+    path("api/users/login/", login_view, name="login_view"),
+    path("api/users/", include(router.urls)),
 ]
+

@@ -631,11 +631,8 @@ textarea::placeholder {
     color: var(--btn-bg) !important;
 }
 
-.login-wrap {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.login-section {
+    background: linear-gradient(to right, #fff, #f9f9f9);
 }
 
 .login-card {
@@ -646,21 +643,6 @@ textarea::placeholder {
     overflow: hidden;
 }
 
-.login-left {
-    padding: 28px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.01));
-}
-
-.brand-logo {
-    width: 56px;
-    height: 56px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.toggle-dark {
-    cursor: pointer;
-}
 
 .input-with-icon {
     position: relative;

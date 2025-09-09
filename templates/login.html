@@ -4,79 +4,81 @@
 
 {% block content %}
 
-    <div class="login-wrap" id="page">
-        <div class="card login-card">
-            <div class="row g-0">
-                <!-- سمت چپ: برند و توضیح -->
-                <div class="col-12 login-left">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <img src="{% static 'images/logo.png' %}" alt="logo" class="brand-logo">
-                            <div>
-                                <h4 class="mb-0" style="color:var(--primary-dark)">PhoenixFamily</h4>
-                                <div class="small-muted">پنل مدیریت — خوش اومدی</div>
-                            </div>
-                        </div>
 
-                        <div>
-                            <button id="darkToggle" class="btn btn-sm" title="حالت تاریک">
-                                <span class="toggle-dark">🌙</span>
-                            </button>
-                        </div>
+    <section class="swiper-section py-5">
+        <div class="container">
+            <div class="form-wrapper bg-white shadow rounded p-4 w-100">
+                <h3 class="mb-4 text-center fw-bold">ورود به حساب</h3>
+                <p>لطفاً نام کاربری و رمز عبور خود را وارد کنید</p>
+                {% csrf_token %}
+                <form>
+                    <div class="form-outline form-white mb-4">
+                        <input type="tel" id="number" class="form-control form-control-lg" placeholder="9123456780"
+                               required/>
+                        <label class="form-label" for="number">موبایل</label>
                     </div>
 
-                    <hr style="border-color: rgba(0,0,0,0.06)">
+                        <div class="form-outline form-white mb-4 position-relative" dir="ltr">
 
-                    <!-- فرم ورود -->
-                    <form method="post" novalidate>
-                        {% csrf_token %}
-                        {% if messages %}
-                            <div class="mb-2">
-                                {% for msg in messages %}
-                                    <div class="alert alert-{{ msg.tags }} p-2">{{ msg }}</div>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-
-                        <div class="mb-3 input-with-icon">
-                            <label class="form-label">پست الکترونیک</label>
-                            <input type="email" name="username" id="id_username" class="form-control form-control-lg"
-                                   placeholder="you@domain.com" required>
-                            <i class="icon bi bi-envelope-fill"></i>
-                        </div>
-
-                        <div class="mb-3 input-with-icon">
-                            <label class="form-label">رمز عبور</label>
-                            <input type="password" name="password" id="id_password" class="form-control form-control-lg"
-                                   placeholder="••••••••" required>
-                            <i class="icon bi bi-lock-fill"></i>
-                        </div>
-
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember">
-                                <label class="form-check-label small-muted" for="remember">مرا به خاطر بسپار</label>
-                            </div>
-                            <a href="#" class="small-muted">فراموشی رمز؟</a>
-                        </div>
-
-                        <button type="submit" class="btn w-100"
-                                style="background:var(--btn-bg); color:var(--btn-text); font-weight:600;">
-                            ورود به پنل
-                        </button>
-
-                        <div class="text-center mt-3 small-muted">
-                            ورود امن با TLS • پشتیبانی چند دامنه
-                        </div>
-                    </form>
-
-                    <div class="text-center mt-3 small-muted">
-                        © {{ year }} PhoenixFamily
+                        <input type="password" id="password" class="form-control form-control-lg px-2" placeholder="رمز عبور"
+                               required/>
+                        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                        <label for="password">رمز عبور</label>
                     </div>
-                </div>
+
+                    <p class="small mb-4">
+                        <a href=" ">فراموشی رمز عبور؟</a>
+                    </p>
+                    <button id="submit" class="btn btn-cta btn-lg px-5" type="submit">ورود</button>
+                </form>
+
+                <p class="mt-4">اکانت ندارید؟ <a href="{% url 'user:register' %}">ثبت‌نام کنید</a></p>
             </div>
+
         </div>
-    </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const submit = document.getElementById('submit');
+            const togglePassword = document.getElementById("togglePassword");
+
+            togglePassword.addEventListener("click", () => {
+                const passwordField = document.getElementById("password");
+                const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+                passwordField.setAttribute("type", type);
+                togglePassword.classList.toggle("fa-eye-slash");
+            });
+
+            submit.addEventListener("click", async (e) => {
+                e.preventDefault();
+                const username = '+98' + document.getElementById("number").value;
+                const password = document.getElementById("password").value;
+
+                const response = await fetch("{% url 'user:login_api' %}", {
+                    method: "POST",
+                    headers: {'Content-Type': "application/json"},
+                    body: JSON.stringify({username, password})
+                });
+
+                if (response.ok) {
+                    const userData = await response.json();
+                    if (userData.user.is_staff)
+                        location.assign(`/user/home/manager/${userData.user.id}/`);
+                    else if (userData.user.is_superuser)
+                        location.assign(`/user/home/admin/${userData.user.id}/`);
+                    else if (userData.user.is_teacher)
+                        location.assign(`/user/home/teacher/${userData.user.id}/`);
+                    else
+                        location.assign(`/user/home/user/${userData.user.id}/`);
+                } else {
+                    const error = await response.json();
+                    alert(error.error || "ورود ناموفق. لطفاً دوباره تلاش کنید.");
+                }
+            });
+        });
+    </script>
+
 
 
 {% endblock %}

@@ -166,19 +166,19 @@ class UserCRUDView(ModelViewSet):
 @csrf_exempt
 def login_view(request):
     template = loader.get_template('login.html')
-    if request.user.is_authenticated:
-        if request.user.is_staff:
-            # ریدایرکت به داشبورد ادمین
-            return redirect(f'/user/home/manager/{request.user.id}/')
-
-        elif request.user.is_admin:
-            return redirect(f'/user/home/admin/{request.user.id}/')
-
-        else:
-            # ریدایرکت به داشبورد کاربر عادی
-            return redirect(f'/user/home/user/{request.user.id}/')
-    else:
-        return HttpResponse(template.render(request))
+    # if request.user.is_authenticated:
+    #     if request.user.is_staff:
+    #         # ریدایرکت به داشبورد ادمین
+    #         return redirect(f'/user/home/manager/{request.user.id}/')
+    #
+    #     elif request.user.is_admin:
+    #         return redirect(f'/user/home/admin/{request.user.id}/')
+    #
+    #     else:
+    #         # ریدایرکت به داشبورد کاربر عادی
+    #         return redirect(f'/user/home/user/{request.user.id}/')
+    # else:
+    return HttpResponse(template.render(request))
 
 
 

@@ -13,18 +13,22 @@
                 {% csrf_token %}
                 <form>
                     <div class="form-outline form-white mb-4">
-                        <input type="text" id="id_username" class="form-control form-control-lg" placeholder="{% trans 'username' %}"
+
+                        <label class="form-label" for="id_username">{% trans 'username' %}</label>
+
+                        <input type="text" id="id_username" class="form-control form-control-lg"
+                               placeholder="{% trans 'username' %}"
                                required/>
-                        <label class="form-label" for="id_username"></label>
                     </div>
 
-                        <div class="form-outline form-white mb-4 position-relative">
+                    <div class="form-outline form-white mb-4 position-relative">
 
-                        <input type="password" id="password" class="form-control form-control-lg px-2" placeholder="{% trans 'password' %}"
+                        <label for="password">{% trans 'password' %}</label>
+
+                        <input type="password" id="password" class="form-control form-control-lg px-2"
+                               placeholder="{% trans 'password' %}"
                                required/>
                         <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                        <label for="password"></label>
-
                     </div>
 
                     <p class="small mb-4">

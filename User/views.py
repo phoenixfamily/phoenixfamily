@@ -182,6 +182,11 @@ def login_view(request):
     return render(request, 'login.html')
 
 
+@csrf_exempt
+def register_view(request):
+
+    return render(request, 'register.html')
+
 
 @csrf_exempt
 def custom_login(request):

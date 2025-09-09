@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+
+    <section class="swiper-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="login-card rounded p-4 shadow">
+                        <h3 class="mb-3 text-center fw-bold">{% trans "Create Account" %}</h3>
+                        <p class="text-center text-muted small">{% trans "Fill the form to get started" %}</p>
+
+                        <form method="post" class="mt-4">
+                            {% csrf_token %}
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label" for="first_name">{% trans "First Name" %}</label>
+                                    <input type="text" id="first_name" class="form-control"
+                                           placeholder="{% trans 'Enter first name' %}" required>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label" for="last_name">{% trans "Last Name" %}</label>
+                                    <input type="text" id="last_name" class="form-control"
+                                           placeholder="{% trans 'Enter last name' %}" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="email">{% trans "Email" %}</label>
+                                <input type="email" id="email" class="form-control"
+                                       placeholder="{% trans 'Enter your email' %}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="phone">{% trans "Mobile Number" %}</label>
+                                <input type="tel" id="phone" class="form-control"
+                                       placeholder="{% trans '09xxxxxxxxx' %}" required>
+                            </div>
+
+                            <div class="mb-3 position-relative">
+                                <label class="form-label" for="password">{% trans "Password" %}</label>
+                                <input type="password" id="password" class="form-control"
+                                       placeholder="{% trans 'Enter password' %}" required>
+                                <i class="fas fa-eye toggle-password position-absolute top-50 end-0 translate-middle-y px-3"
+                                   id="togglePassword"></i>
+                            </div>
+
+                            <div class="mb-3 position-relative">
+                                <label class="form-label" for="confirm_password">{% trans "Confirm Password" %}</label>
+                                <input type="password" id="confirm_password" class="form-control"
+                                       placeholder="{% trans 'Re-enter password' %}" required>
+                                <i class="fas fa-eye toggle-password position-absolute top-50 end-0 translate-middle-y px-3"
+                                   id="toggleConfirmPassword"></i>
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <button class="btn btn-cta btn-lg" type="submit">{% trans "Register" %}</button>
+                            </div>
+                        </form>
+
+                        <p class="mt-4 text-center small">
+                            {% trans "Already have an account?" %}
+                            <a href="{% url 'user:login_view' %}">{% trans "Login" %}</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const togglePassword = document.getElementById("togglePassword");
+            const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+
+
+            togglePassword.addEventListener("click", () => {
+                const passwordField = document.getElementById("password");
+                const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+                passwordField.setAttribute("type", type);
+                togglePassword.classList.toggle("fa-eye-slash");
+            });
+
+              toggleConfirmPassword.addEventListener("click", () => {
+                const passwordField = document.getElementById("confirm_password");
+                const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+                passwordField.setAttribute("type", type);
+                togglePassword.classList.toggle("fa-eye-slash");
+            });
+
+        });
+    </script>
+
+
+
+{% endblock %}
+
+
+{% block footer %}
+    <div class="row align-items-center">
+        <!-- لوگوی شرکت -->
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+            <a href="//phoenixfamily.co">
+                <img src="{{ About.logo.url }}" alt="{{ About.name }}" class="img-fluid" style="max-width: 150px;">
+            </a>
+        </div>
+
+        <!-- اطلاعات تماس -->
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+            <h6 class="mb-2">{% trans "Contact Us" %}</h6>
+            <p class="mb-1">
+                <i class="fas fa-phone-alt contact-icon  me-2"></i>{% trans "Phone" %}: {{ About.number }}
+            </p>
+            <p class="mb-0">
+                <i class="fas fa-envelope contact-icon me-2"></i>{% trans "Email" %}: {{ About.email }}
+            </p>
+        </div>
+
+        <!-- شبکه‌های اجتماعی -->
+        <div class="col-md-4 text-center right">
+            <h6 class="mb-2">{% trans "Follow Us" %}</h6>
+            <div class="social-icons">
+                <a href="{{ About.instagram }}" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="{{ About.telegram }}" class="me-3"><i class="fab fa-telegram fa-lg"></i></a>
+                <a href="{{ About.whatsApp }}" class="me-3"><i class="fab fa-whatsapp fa-lg"></i></a>
+                <a href="{{ About.linkedin }}"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

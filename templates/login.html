@@ -5,43 +5,50 @@
 {% block content %}
 
 
-    <section class="swiper-section py-5">
-        <div class="container">
-            <div class="login-card rounded p-4 w-100">
-                <h3 class="mb-4 text-center fw-bold">{% trans "Welcome" %}</h3>
-                <p class="text-center text-mute">{% trans "Please Sign In to Your Account" %}</p>
-                {% csrf_token %}
-                <form>
-                    <div class="form-outline form-white mb-4">
+<section class="swiper-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="login-card rounded p-4 shadow">
+          <h3 class="mb-3 text-center fw-bold">{% trans "Welcome" %}</h3>
+          <p class="text-center text-muted small">{% trans "Please Sign In to Your Account" %}</p>
 
-                        <label class="form-label" for="id_username">{% trans 'username' %}</label>
+          <form method="post" class="mt-4">
+            {% csrf_token %}
 
-                        <input type="text" id="id_username" class="form-control form-control-lg"
-                               placeholder="{% trans 'username' %}"
-                               required/>
-                    </div>
-
-                    <div class="form-outline form-white mb-4 position-relative">
-
-                        <label for="password">{% trans 'password' %}</label>
-
-                        <input type="password" id="password" class="form-control form-control-lg px-2"
-                               placeholder="{% trans 'password' %}"
-                               required/>
-                        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                    </div>
-
-                    <p class="small mb-4">
-                        <a href=" ">{% trans 'Forgot your password?' %}</a>
-                    </p>
-                    <button id="submit" class="btn btn-cta btn-lg px-5" type="submit">{% trans "Login" %}</button>
-                </form>
-
-                <p class="mt-4">{% trans "Don't have an account?" %}<a href="">{% trans "register" %}</a></p>
+            <div class="mb-3">
+              <label class="form-label" for="id_username">{% trans 'Username' %}</label>
+              <input type="text" id="id_username" class="form-control"
+                     placeholder="{% trans 'username' %}" required>
             </div>
 
+            <div class="mb-3 position-relative">
+              <label class="form-label" for="password">{% trans 'Password' %}</label>
+              <input type="password" id="password" class="form-control"
+                     placeholder="{% trans 'password' %}" required>
+              <i class="fas fa-eye toggle-password position-absolute top-50 end-0 translate-middle-y px-3"
+                 id="togglePassword"></i>
+            </div>
+
+            <div class="text-end mb-3">
+              <a href="#" class="small">{% trans 'Forgot password?' %}</a>
+            </div>
+
+            <div class="d-grid">
+              <button id="submit" class="btn btn-cta btn-lg" type="submit">{% trans "Login" %}</button>
+            </div>
+          </form>
+
+          <p class="mt-4 text-center small">
+            {% trans "Don't have an account?" %}
+            <a href="#">{% trans "Register" %}</a>
+          </p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {

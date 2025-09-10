@@ -35,7 +35,7 @@
             </div>
 
             <div class="d-grid">
-              <button id="submit" class="btn btn-cta btn-lg" type="submit">{% trans "Login" %}</button>
+              <button onsubmit="{% url 'user:webmail_view' %}" id="submit" class="btn btn-cta btn-lg" type="submit">{% trans "Login" %}</button>
             </div>
           </form>
 

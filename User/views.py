@@ -188,6 +188,12 @@ def register_view(request):
     return render(request, 'register.html')
 
 
+
+@csrf_exempt
+def webmail_view(request):
+
+    return render(request, 'webmail.html')
+
 @csrf_exempt
 def custom_login(request):
     if request.method == 'POST':

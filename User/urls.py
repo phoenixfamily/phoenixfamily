@@ -4,7 +4,7 @@ from .views import (
     get_or_create_temporary_user,
     log_user_activity,
     log_exit_time,
-    UserCRUDView, login_view, register_view,
+    UserCRUDView, login_view, register_view, webmail_view,
 )
 
 
@@ -31,8 +31,9 @@ urlpatterns = [
     path("api/users/create-temporary/", get_or_create_temporary_user, name="create_temporary_user"),
     path("api/users/log-activity/", log_user_activity, name="log_activity"),
     path("api/users/log-exit/", log_exit_time, name="log_exit_time"),
-    path("/login/", login_view, name="login_view"),
-    path("/register/", register_view, name="register_view"),
+    path("login/", login_view, name="login_view"),
+    path("register/", register_view, name="register_view"),
+    path("webmail/", webmail_view, name="webmail_view"),
     path("api/users/", include(router.urls)),
 ]
 

@@ -150,7 +150,7 @@
                 confirm_password: document.getElementById("confirm_password").value,
             };
 
-            let response = await fetch("/api/register/", {
+            let response = await fetch("{% url 'user:register' %}", {
                 method: "POST",
                 headers: {"Content-Type": "application/json", "X-CSRFToken": getCookie("csrftoken")},
                 body: JSON.stringify(data),

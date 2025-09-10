@@ -1,7 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
 from cryptography.fernet import Fernet
 from PhoenixFamily import settings
+from User.models import User
 
 fernet = Fernet(settings.EMAIL_ENCRYPTION_KEY)
 

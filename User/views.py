@@ -5,16 +5,42 @@ from django.template import loader
 from django.utils.timezone import now
 from django.views.decorators.csrf import csrf_exempt
 from django_user_agents.utils import get_user_agent
+from rest_framework import status
+from rest_framework.generics import CreateAPIView
+
 from .models import User, UserDeviceInfo, UserActivityLog
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, get_user_model
 from django.utils.crypto import get_random_string
-from .serializers import UserSerializer
+from .serializers import RegisterSerializer
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404, redirect, render
 from rest_framework.exceptions import NotFound
 
+
+User = get_user_model()
+
+
+class RegisterView(CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = RegisterSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+
+        return Response({
+            "message": "Account created successfully.",
+            "user": {
+                "id": str(user.id),
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "email": user.email,
+                "number": user.number,
+            }
+        }, status=status.HTTP_201_CREATED)
 
 def get_or_create_temporary_user(request):
     if not request.session.get('user_id'):  # بررسی اینکه آیا کاربر موقت در سشن ذخیره شده است
@@ -129,39 +155,6 @@ class UserCRUDView(ModelViewSet):
 
         return obj
 
-# class UserObserve(GenericAPIView):
-#     permission_classes = [AllowAny]
-#     serializer_class = UserSerializer
-#     queryset = User.objects.all()
-#
-#     def get(self, request, number=None):
-#         if number:
-#             # Retrieve a single object
-#             try:
-#                 user = User.objects.get(number=number)
-#                 serializer = self.get_serializer(user)
-#             except:
-#                 raise NotFound(detail="user not found.")
-#         else:
-#             # Retrieve all objects
-#             users = self.get_queryset()
-#             serializer = self.get_serializer(users, many=True)
-#
-#         return Response(serializer.data)
-#
-#
-# class UpdateUser(UpdateAPIView):
-#     serializer_class = UserSerializer
-#     queryset = User.objects.all()
-#     permission_classes = [IsAuthenticated]
-#
-#     # def get_object(self):
-#     #     return self.request.user
-#
-#     def get_object(self):
-#         """Retrieve user based on the `number` field instead of `pk`."""
-#         number = self.kwargs.get("number")  # Get `number` from URL
-#         return get_object_or_404(User, number=number)
 
 @csrf_exempt
 def login_view(request):
@@ -187,12 +180,6 @@ def register_view(request):
 
     return render(request, 'register.html')
 
-
-
-@csrf_exempt
-def webmail_view(request):
-
-    return render(request, 'webmail.html')
 
 @csrf_exempt
 def custom_login(request):

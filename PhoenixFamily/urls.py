@@ -38,6 +38,7 @@ urlpatterns += i18n_patterns(
     path('user/', include('User.urls', namespace='user')),  # مسیر URLهای اپلیکیشن User
     path('auth/', include('Authentication.urls', namespace='authentication')),  # مسیر URLهای اپلیکیشن Authentication
     path('seo/', include('Seo.urls', namespace='seo')),  # مسیر URLهای اپلیکیشن Authentication
+    path('webmail/', include('WebMail.urls', namespace='webmail')),  # مسیر URLهای اپلیکیشن Authentication
     path('', RedirectView.as_view(url='home/', permanent=True)),  # ریدایرکت دائمی
 
 )

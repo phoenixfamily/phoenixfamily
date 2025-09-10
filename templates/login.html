@@ -36,7 +36,7 @@
 
                             <div class="d-grid">
                                 {#              <button onsubmit="{% url 'user:webmail_view' %}" id="submit" class="btn btn-cta btn-lg" type="submit">{% trans "Login" %}</button>#}
-                                <a href="{% url 'user:webmail_view' %}" class="btn btn-cta btn-lg">
+                                <a href="{% url 'webmail:inbox_view' %}" class="btn btn-cta btn-lg">
                                     {% trans "Login" %}
                                 </a>
 
@@ -79,14 +79,15 @@
 
                 if (response.ok) {
                     const userData = await response.json();
-                    if (userData.user.is_staff)
-                        location.assign(`/user/home/manager/${userData.user.id}/`);
-                    else if (userData.user.is_superuser)
-                        location.assign(`/user/home/admin/${userData.user.id}/`);
-                    else if (userData.user.is_teacher)
-                        location.assign(`/user/home/teacher/${userData.user.id}/`);
+                    if (userData.user.is_staff){
+
+                    }
+                    else if (userData.user.is_admin){
+
+                    }
+
                     else
-                        location.assign(`/user/home/user/${userData.user.id}/`);
+                        location.assign(`{% url 'webmail:inbox' %}`);
                 } else {
                     const error = await response.json();
                     alert(error.error || "ورود ناموفق. لطفاً دوباره تلاش کنید.");

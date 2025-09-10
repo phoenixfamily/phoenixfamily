@@ -17,6 +17,8 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
+EMAIL_ENCRYPTION_KEY = config("EMAIL_ENCRYPTION_KEY", default="XWl0L1UyZ1R0UzNvaXZBbEpLbFZ2dExXcll0TXc1c1A=")
+
 
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
@@ -253,15 +255,3 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'mail.phoenixfamily.co'
-EMAIL_PORT = 465  # پورت SMTP
-EMAIL_USE_TLS = False  # TLS غیرفعال است
-EMAIL_USE_SSL = True  # SSL فعال است
-EMAIL_HOST_USER = 'customer@phoenixfamily.co'
-EMAIL_HOST_PASSWORD = 'n.Y?8&eg0$60'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-COMPANY_EMAIL = 'info@phoenixfamily.co'
-
-AUTH_USER_MODEL = 'User.User'

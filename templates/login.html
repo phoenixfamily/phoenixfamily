@@ -67,7 +67,7 @@
 
             submit.addEventListener("click", async (e) => {
                 e.preventDefault();
-                const username = '+98' + document.getElementById("number").value;
+                const username = document.getElementById("id_username").value;  // ← درست شد
                 const password = document.getElementById("password").value;
 
                 const response = await fetch("{% url 'user:login' %}", {
@@ -78,20 +78,22 @@
 
                 if (response.ok) {
                     const userData = await response.json();
-                    if (userData.user.is_staff){
-
-                    }
-                    else if (userData.user.is_admin){
-
-                    }
-
-                    else
+                    if (userData.user.is_staff) {
+                        // مثلا بفرستش داشبورد ادمین
+                        location.assign(`/admin/`);
+                    } else if (userData.user.is_admin) {
+                        // مثلا بفرستش به بخش مدیریت اختصاصی
+                        location.assign(`/management/`);
+                    } else {
+                        // کاربر عادی → اینباکس
                         location.assign(`{% url 'webmail:inbox_view' %}`);
+                    }
                 } else {
                     const error = await response.json();
                     alert(error.error || "ورود ناموفق. لطفاً دوباره تلاش کنید.");
                 }
             });
+
         });
     </script>
 

@@ -21,6 +21,8 @@ User = get_user_model()
 class RegisterView(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
+    parser_classes = [JSONParser, FormParser, MultiPartParser]  # پشتیبانی از JSON و FormData
+
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)

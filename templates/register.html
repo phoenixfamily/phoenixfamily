@@ -147,7 +147,6 @@
                 let response = await fetch("{% url 'user:register' %}", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json",
                         'X-CSRFToken': formData.get('csrfmiddlewaretoken')
 },
                         body: formData

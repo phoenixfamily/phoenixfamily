@@ -15,16 +15,27 @@ class CustomAccountManager(BaseUserManager):
         other_fields.setdefault('is_active', True)
         other_fields.setdefault('is_admin', True)
 
+        if not password:
+            raise ValueError("Superusers must have a password")
+
         return self.create_user(email=email, password=password, **other_fields)
 
     def create_user(self, email=None, password=None, **other_fields):
-        if not password:
-            raise ValueError("Users must have a password")
+        # ایمیل میتونه اختیاری باشه
+        if email:
+            email = self.normalize_email(email)
 
         user = self.model(email=email, **other_fields)
-        user.set_password(password)
-        user.save()
+
+        if password:
+            user.set_password(password)
+        else:
+            # اگر پسورد خالی بود → unusable
+            user.set_unusable_password()
+
+        user.save(using=self._db)
         return user
+
 
 
 class User(AbstractBaseUser, PermissionsMixin):

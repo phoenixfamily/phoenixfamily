@@ -4,9 +4,10 @@ from django.http import JsonResponse
 from django.utils.timezone import now
 from django.views.decorators.csrf import csrf_exempt
 from django_user_agents.utils import get_user_agent
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.generics import CreateAPIView
 from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
+from tutorial.quickstart.serializers import UserSerializer
 
 from .models import User, UserDeviceInfo, UserActivityLog
 from django.contrib.auth import login, authenticate, get_user_model
@@ -41,6 +42,21 @@ class RegisterView(CreateAPIView):
             }
         }, status=status.HTTP_201_CREATED)
 
+class UserListView(generics.ListAPIView):
+    """
+    برمی‌گردونه لیست همه‌ی یوزرها
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserDetailView(generics.RetrieveAPIView):
+    """
+    برمی‌گردونه یه یوزر خاص
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    lookup_field = "id"  # یا می‌تونی بذاری username
 
 def get_or_create_temporary_user(request):
     if not request.session.get('user_id'):  # بررسی اینکه آیا کاربر موقت در سشن ذخیره شده است

@@ -1,7 +1,6 @@
 import json
 import uuid
-from django.http import JsonResponse, HttpResponse
-from django.template import loader
+from django.http import JsonResponse
 from django.utils.timezone import now
 from django.views.decorators.csrf import csrf_exempt
 from django_user_agents.utils import get_user_agent
@@ -12,11 +11,8 @@ from .models import User, UserDeviceInfo, UserActivityLog
 from django.contrib.auth import login, authenticate, get_user_model
 from django.utils.crypto import get_random_string
 from .serializers import RegisterSerializer
-from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from django.shortcuts import get_object_or_404, redirect, render
-from rest_framework.exceptions import NotFound
+from django.shortcuts import render
 
 
 User = get_user_model()
@@ -41,6 +37,7 @@ class RegisterView(CreateAPIView):
                 "number": user.number,
             }
         }, status=status.HTTP_201_CREATED)
+
 
 def get_or_create_temporary_user(request):
     if not request.session.get('user_id'):  # بررسی اینکه آیا کاربر موقت در سشن ذخیره شده است

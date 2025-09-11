@@ -7,12 +7,11 @@ from django_user_agents.utils import get_user_agent
 from rest_framework import status, generics
 from rest_framework.generics import CreateAPIView
 from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
-from tutorial.quickstart.serializers import UserSerializer
 
 from .models import User, UserDeviceInfo, UserActivityLog
 from django.contrib.auth import login, authenticate, get_user_model
 from django.utils.crypto import get_random_string
-from .serializers import RegisterSerializer
+from .serializers import RegisterSerializer, UserSerializer
 from rest_framework.response import Response
 from django.shortcuts import render
 

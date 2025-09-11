@@ -27,3 +27,13 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.is_active = True   # یا بزار False اگر میخوای ایمیل/شماره تأیید بشه
         user.save()
         return user
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+            "id", "username", "first_name", "last_name",
+            "email", "number", "birth_date", "gender",
+            "is_active", "created_at"
+        ]

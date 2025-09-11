@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django_user_agents.utils import get_user_agent
 from rest_framework import status
 from rest_framework.generics import CreateAPIView
+from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
 
 from .models import User, UserDeviceInfo, UserActivityLog
 from django.contrib.auth import login, authenticate, get_user_model

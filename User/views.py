@@ -7,11 +7,13 @@ from django_user_agents.utils import get_user_agent
 from rest_framework import status, generics
 from rest_framework.generics import CreateAPIView
 from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
+from rest_framework.views import APIView
+from rest_framework_simplejwt.tokens import RefreshToken
 
 from .models import User, UserDeviceInfo, UserActivityLog
 from django.contrib.auth import login, authenticate, get_user_model
 from django.utils.crypto import get_random_string
-from .serializers import RegisterSerializer, UserSerializer
+from .serializers import RegisterSerializer, UserSerializer, LoginSerializer
 from rest_framework.response import Response
 from django.shortcuts import render
 
@@ -56,6 +58,42 @@ class UserDetailView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     lookup_field = "id"  # یا می‌تونی بذاری username
+
+
+class LoginView(APIView):
+    permission_classes = []  # همه بتونن لاگین کنن
+
+    def post(self, request, *args, **kwargs):
+        serializer = LoginSerializer(data=request.data, context={"request": request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data["user"]
+
+        if not user.is_active:
+            return Response({"error": "Account is disabled."}, status=status.HTTP_403_FORBIDDEN)
+
+        # سشن لاگین (برای Django)
+        login(request, user)
+
+        # JWT tokens
+        refresh = RefreshToken.for_user(user)
+
+        return Response({
+            "message": "Login successful ✅",
+            "user": {
+                "id": str(user.id),
+                "username": user.username,
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "email": user.email,
+                "number": user.number,
+                "is_staff": user.is_staff,
+                "is_admin": user.is_admin,
+            },
+            "tokens": {
+                "refresh": str(refresh),
+                "access": str(refresh.access_token),
+            }
+        }, status=status.HTTP_200_OK)
 
 def get_or_create_temporary_user(request):
     if not request.session.get('user_id'):  # بررسی اینکه آیا کاربر موقت در سشن ذخیره شده است
@@ -156,53 +194,9 @@ def log_exit_time(request):
 
 @csrf_exempt
 def login_view(request):
-    # template = loader.get_template('login.html')
-    # if request.user.is_authenticated:
-    #     if request.user.is_staff:
-    #         # ریدایرکت به داشبورد ادمین
-    #         return redirect(f'/user/home/manager/{request.user.id}/')
-    #
-    #     elif request.user.is_admin:
-    #         return redirect(f'/user/home/admin/{request.user.id}/')
-    #
-    #     else:
-    #         # ریدایرکت به داشبورد کاربر عادی
-    #         return redirect(f'/user/home/user/{request.user.id}/')
-    # else:
-    #     return HttpResponse(template.render(request))
     return render(request, 'login.html')
 
 
 @csrf_exempt
 def register_view(request):
-
     return render(request, 'register.html')
-
-
-@csrf_exempt
-def custom_login(request):
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-            number = data.get('username')  # دریافت شماره به عنوان username
-            password = data.get('password')
-
-            # اعتبارسنجی پسورد
-            user = authenticate(request, username=number, password=password)
-            if user is not None:
-                login(request, user)
-                user_data = {
-                    'id': user.id,
-                    'is_staff': user.is_staff,
-                    'is_admin': user.is_admin,
-                }
-                return JsonResponse({'status': 'success', 'user': user_data}, status=200)
-            else:
-                return JsonResponse({'error': 'پسورد اشتباه است'}, status=400)
-
-        except User.DoesNotExist:
-            return JsonResponse({'error': 'نام کاربری وجود ندارد'}, status=404)
-        except json.JSONDecodeError:
-            return JsonResponse({'error': 'فرمت JSON نامعتبر است'}, status=400)
-        except Exception as e:
-            return JsonResponse({'error': str(e)}, status=500)

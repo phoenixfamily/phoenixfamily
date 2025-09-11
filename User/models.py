@@ -1,4 +1,6 @@
 import uuid
+import random
+import string
 
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.core.validators import RegexValidator
@@ -8,15 +10,17 @@ from django.utils.timezone import now
 
 class CustomAccountManager(BaseUserManager):
 
-    def create_superuser(self, number, password, **other_fields):
+    def create_superuser(self, email=None, password=None, **other_fields):
         other_fields.setdefault('is_staff', True)
-        other_fields.setdefault('is_superuser', True)
         other_fields.setdefault('is_active', True)
         other_fields.setdefault('is_admin', True)
 
-        return self.create_user(number, password, **other_fields)
+        return self.create_user(email=email, password=password, **other_fields)
 
-    def create_user(self, email, password, **other_fields):
+    def create_user(self, email=None, password=None, **other_fields):
+        if not password:
+            raise ValueError("Users must have a password")
+
         user = self.model(email=email, **other_fields)
         user.set_password(password)
         user.save()
@@ -25,33 +29,24 @@ class CustomAccountManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    is_temporary = models.BooleanField(default=True)  # مشخص می‌کند کاربر موقت است یا نه
+    is_temporary = models.BooleanField(default=True)
 
-    # نام
     first_name = models.CharField(max_length=50, blank=True, null=True)
-    # نام خانوادگی
     last_name = models.CharField(max_length=50, blank=True, null=True)
 
-    username = models.CharField(max_length=50, unique=True, blank=True, null=True)  # New username field
+    # یوزرنیم اجباری و یونیک
+    username = models.CharField(max_length=10, unique=True, blank=True, null=True)
 
-    # ایمیل
     email = models.EmailField(unique=True, null=True, blank=True)
-
-    # شماره تلفن (اعتبارسنجی شماره تلفن)
     phone_regex = RegexValidator(
         regex=r'^\+?(\d[\d().\s-]*)?\d{9,15}$',
-        message="Phone number must be entered in a valid international format. Examples: '+1234567890', "
-                "'+1 (234) 567-8901', or '+44-20-1234-5678'."
+        message="Phone number must be entered in a valid format."
     )
     number = models.CharField(unique=True, validators=[phone_regex], max_length=15, blank=True, null=True)
 
-    # تاریخ تولد
     birth_date = models.DateField(blank=True, null=True)
-
-    # تصویر پروفایل
     image = models.ImageField(upload_to='profile_images/', blank=True, null=True)
 
-    # جنسیت
     GENDER_CHOICES = [
         ('male', 'Male'),
         ('female', 'Female'),
@@ -62,34 +57,34 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False, verbose_name="مدیر")
     is_active = models.BooleanField(default=False, verbose_name='فعال')
     is_admin = models.BooleanField(default=False, verbose_name='ادمین')
-
-    # **New field for email verification**
     is_verified = models.BooleanField(default=False)
 
-    # زمان ایجاد و به‌روزرسانی
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'number', 'birth_date', 'gender']
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = []
 
     objects = CustomAccountManager()
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return self.username or f"User-{self.id}"
 
     class Meta:
         verbose_name = "User Profile"
         verbose_name_plural = "User Profiles"
 
-    def assign_username(self):
-        """Assigns username after email verification."""
-        if not self.username:
-            self.username = self.email.split('@')[0]
+    def generate_username(self, length=10):
+        """Generates a random unique username (letters+digits, length=10)."""
+        chars = string.ascii_lowercase + string.digits
+        while True:
+            random_username = ''.join(random.choices(chars, k=length))
+            if not User.objects.filter(username=random_username).exists():
+                return random_username
 
     def save(self, *args, **kwargs):
-        if self.is_verified and not self.username:
-            self.assign_username()
+        if not self.username:  # فقط اگر یوزرنیم خالی بود
+            self.username = self.generate_username()
         super().save(*args, **kwargs)
 
 

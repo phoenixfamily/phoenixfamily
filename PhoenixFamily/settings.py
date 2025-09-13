@@ -200,19 +200,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Authentication via JWT
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
-}
-
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),  # Token expires in 1 day
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),  # Refresh token expires in 7 days
-    'AUTH_HEADER_TYPES': ('Bearer',),
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

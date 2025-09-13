@@ -10,6 +10,7 @@ fernet = Fernet(settings.EMAIL_ENCRYPTION_KEY)
 class MailAccount(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE , related_name='mail_accounts')
     email = models.EmailField(unique=True)
+    destination = models.EmailField(blank=True, null=True)  # اضافه شد
     imap_host = models.CharField(max_length=255, default="imap.yourdomain.com")
     imap_port = models.PositiveIntegerField(default=993)
     smtp_host = models.CharField(max_length=255, default="smtp.yourdomain.com")
@@ -39,3 +40,8 @@ class MailAccount(models.Model):
 
     def __str__(self):
         return self.email
+
+    def save(self, *args, **kwargs):
+        if not self.destination:
+            self.destination = self.email
+        super().save(*args, **kwargs)

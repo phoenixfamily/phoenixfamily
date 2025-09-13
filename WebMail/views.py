@@ -135,7 +135,6 @@ def send_mail_api(request):
 
 class MailAccountViewSet(viewsets.ModelViewSet):
     serializer_class = MailAccountSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         return MailAccount.objects.filter(user=self.request.user)

@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .views import (
     get_or_create_temporary_user,
     log_user_activity,
-    log_exit_time, login_view, register_view, RegisterView, UserListView, UserDetailView, LoginView, custom_login,
+    log_exit_time, login_view, register_view, RegisterView, UserListView, UserDetailView, custom_login,
 )
 
 

@@ -79,11 +79,9 @@
                 if (response.ok) {
                     const userData = await response.json();
                     if (userData.user.is_staff) {
-                        // مثلا بفرستش داشبورد ادمین
-                        location.assign(`/admin/`);
+
                     } else if (userData.user.is_admin) {
-                        // مثلا بفرستش به بخش مدیریت اختصاصی
-                        location.assign(`/management/`);
+
                     } else {
                         // کاربر عادی → اینباکس
                         location.assign(`{% url 'webmail:inbox_view' %}`);

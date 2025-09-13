@@ -17,7 +17,6 @@ from .serializers import RegisterSerializer, UserSerializer, LoginSerializer
 from rest_framework.response import Response
 from django.shortcuts import render
 
-
 User = get_user_model()
 
 
@@ -25,7 +24,6 @@ class RegisterView(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
     parser_classes = [JSONParser, FormParser, MultiPartParser]  # پشتیبانی از JSON و FormData
-
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -42,6 +40,7 @@ class RegisterView(CreateAPIView):
                 "number": user.number,
             }
         }, status=status.HTTP_201_CREATED)
+
 
 class UserListView(generics.ListAPIView):
     """
@@ -60,33 +59,34 @@ class UserDetailView(generics.RetrieveAPIView):
     lookup_field = "id"  # یا می‌تونی بذاری username
 
 
-class LoginView(APIView):
-    permission_classes = []  # همه بتونن لاگین کنن
+@csrf_exempt
+def custom_login(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            username = data.get('username')  # دریافت شماره به عنوان username
+            password = data.get('password')
 
-    def post(self, request, *args, **kwargs):
-        serializer = LoginSerializer(data=request.data, context={"request": request})
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data["user"]
+            # اعتبارسنجی پسورد
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                user_data = {
+                    'id': user.id,
+                    'is_staff': user.is_staff,
+                    'is_admin': user.is_admin,
+                }
+                return JsonResponse({'status': 'success', 'user': user_data}, status=200)
+            else:
+                return JsonResponse({'error': 'پسورد اشتباه است'}, status=400)
 
-        if not user.is_active:
-            return Response({"error": "Account is disabled."}, status=status.HTTP_403_FORBIDDEN)
+        except User.DoesNotExist:
+            return JsonResponse({'error': 'نام کاربری وجود ندارد'}, status=404)
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'فرمت JSON نامعتبر است'}, status=400)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
 
-        # سشن لاگین (برای Django)
-        login(request, user)
-
-        return Response({
-            "message": "Login successful ✅",
-            "user": {
-                "id": str(user.id),
-                "username": user.username,
-                "first_name": user.first_name,
-                "last_name": user.last_name,
-                "email": user.email,
-                "number": user.number,
-                "is_staff": user.is_staff,
-                "is_admin": user.is_admin,
-            },
-        }, status=status.HTTP_200_OK)
 
 def get_or_create_temporary_user(request):
     if not request.session.get('user_id'):  # بررسی اینکه آیا کاربر موقت در سشن ذخیره شده است
@@ -182,7 +182,6 @@ def log_exit_time(request):
             return JsonResponse({'status': 'error', 'message': 'Log not found'}, status=404)
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
-
 
 
 @csrf_exempt

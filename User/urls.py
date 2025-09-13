@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .views import (
     get_or_create_temporary_user,
     log_user_activity,
-    log_exit_time, login_view, register_view, RegisterView, UserListView, UserDetailView, LoginView,
+    log_exit_time, login_view, register_view, RegisterView, UserListView, UserDetailView, LoginView, custom_login,
 )
 
 
@@ -29,7 +29,7 @@ urlpatterns = [
     path("login/", login_view, name="login_view"),
     path("register/", register_view, name="register_view"),
     path("api/register/", RegisterView.as_view(), name="register"),
-    path("api/login/", LoginView.as_view(), name="login"),
+    path('api/login/', custom_login, name='login'),
     path("api/users/", UserListView.as_view(), name="user-list"),
     path("api/users/<uuid:id>/", UserDetailView.as_view(), name="user-detail"),
 

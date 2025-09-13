@@ -74,9 +74,6 @@ class LoginView(APIView):
         # سشن لاگین (برای Django)
         login(request, user)
 
-        # JWT tokens
-        refresh = RefreshToken.for_user(user)
-
         return Response({
             "message": "Login successful ✅",
             "user": {
@@ -89,10 +86,6 @@ class LoginView(APIView):
                 "is_staff": user.is_staff,
                 "is_admin": user.is_admin,
             },
-            "tokens": {
-                "refresh": str(refresh),
-                "access": str(refresh.access_token),
-            }
         }, status=status.HTTP_200_OK)
 
 def get_or_create_temporary_user(request):
